@@ -42,6 +42,12 @@
           console.log(allg);
 
            alert(allg[0].code.text);
+
+          const toAlert = [];
+      allg.forEach(($v) => { toAlert.push($v.code.text); });
+      alert("Allergies:\r\n" + toAlert.join("\r\n"));
+
+          
           
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
