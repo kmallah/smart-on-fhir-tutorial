@@ -45,7 +45,7 @@
 
           const toAlert = [];
       allg.forEach(($v) => { toAlert.push($v.code.text); });
-      alert("Allergies:\r\n" + toAlert.join("\r\n"));
+     // alert("Allergies:\r\n" + toAlert.join("\r\n"));
 
           
           
@@ -67,6 +67,7 @@
           var ldl = byCodes('2089-1');
           var temperature =  byCodes('8310-5');
 
+
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
@@ -74,6 +75,7 @@
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
           p.temperature = getQuantityValueAndUnit(temperature[0]);
+          p.allergy = "<div>"+ toAlert.join("</div><div>") + "</div>";
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -109,7 +111,8 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
-      temperature: {value: ''}
+      temperature: {value: ''},
+      allergy: {value: ''}
     };
   }
 
@@ -154,6 +157,7 @@
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
     $('#temperature').html(p.temperature);
+    $('#allergy').html(p.allergy);
   };
 
 })(window);
